@@ -10,8 +10,9 @@ Prompt :
 Assist me in figuring out how to add a functionality into a given implemented app using Java in AndroidStudio. We are provided a starter code, where the app adds a city along with its state in a list of cities being displayed. Now, we want to add another functionality which can edit the city's name and state when we click on it. Hints: 1. Add setters to your City class so that you can modify its name and province. You may need to pass the City object that is clicked in the Activity into the Fragment. One way to do this is to make a constructor for the Fragment that takes in a City, and store the City in the Fragment as an instance variable. If you do this, make sure to also add an empty constructor to the Fragment so you can use it when adding a new City. Another way you can send a City object from the Activity to the Fragment is by adding a "newInstance" method in the Fragment, and use this method to create a new Fragment when editing a City. In this method, you take in a City and store it in the Fragment's Bundle object (if you do this, make sure that your City class implements the "Serializable" interface, so that it can be saved into the Bundle). Later on in your onCreateDialog method, you can access the Bundle using getArguments() and retrieve the City object there. Note that storing data in a Bundle is similar to storing data in an Intent using key-value pairs. (This is the preferred way to do it in Android, because you usually should not have custom constructors for your Fragments. See here for more info).
 
 Response:  
-Perfect—here’s a copy-free, step-by-step plan to add “tap-to-edit” using your existing add-city dialog, with only a few new methods and small glue changes.  
-What you’ll add (overview)  
+Perfect—here’s a copy-free, step-by-step plan to add “tap-to-edit” using your existing add-city dialog, with only a few new methods and small glue changes.
+
+What you’ll add (overview)
 City.java  
 Make the class serializable.  
 Add two setters.  
@@ -25,7 +26,7 @@ Implement the callback.
 Open the dialog in two ways: FAB = Add, List item tap = Edit.  
 Update the list + notify the adapter.
 
-1) City.java (2 tiny changes)
+1. City.java (2 tiny changes)
 File: City.java
 Goal: allow passing and editing.
 Add implements Serializable to the class header.
@@ -37,7 +38,7 @@ Why: so you can update an existing City when the user edits.
 (Check) Your toString() should return something like "City, Province".
 Why: ArrayAdapter uses toString() to show the row text.
 
-2) Your DialogFragment: make it work for Add + Edit
+2. Your DialogFragment: make it work for Add + Edit
 You can keep your current AddCityFragment and just enhance it.  
 File: AddCityFragment.java (or rename to AddEditCityFragment if you like)  
 2.1 Add two argument keys (as static final String)  
@@ -73,7 +74,7 @@ Call the listener:
 onCitySaved(newName, newProvince, position, isEdit)  
 Keep validation simple (e.g., ensure neither field is empty). If invalid, just don’t call the listener.
 
-3) MainActivity: wire it up  
+3. MainActivity: wire it up  
 File: MainActivity.java
 3.1 Implement the fragment’s interface  
 Add implements AddEditCityFragment.OnCityEditedListener (or your class name).  
@@ -98,7 +99,7 @@ show() it.
 Make sure your ListView and FAB IDs match what you call with findViewById.  
 Name consistency matters—if your list is cityDataList everywhere, stick to that exact name.
 
-Quick test plan (2 minutes)  
+4. Quick test plan (2 minutes)  
 Launch the app: you should see your seeded cities.  
 Tap a city → dialog title should say Edit City and fields prefilled.  
 Change both fields → Save → row text updates.  
