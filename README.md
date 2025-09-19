@@ -210,7 +210,26 @@ Use the same field name everywhere. If your list is cityDataList, don’t call i
 
 That’s it. If you tell me your exact class/file names and the IDs in your XML (ListView, FAB, EditTexts), I’ll map each step to your filenames/IDs one-by-one to make it foolproof.
 
+Prompt:  
+Give me some links of the websites/articles where I could learn more about these methods and implement my fucntionality.
 
+Response:  
+Here are some good resources/tutorials that explain exactly the Android patterns you want (DialogFragment, factory newInstance(...), using Bundle, passing Serializable objects, callbacks, etc.). You can go through these to deepen your understanding and then apply those ideas to your code.
+
+🔗 Useful Links & What You’ll Learn from Each  
+Resource	What You’ll Learn That Matches What You Need   
+Android Developer Documentation — Display dialogs with DialogFragment	Shows how to subclass DialogFragment, override onCreateDialog(), how to show it, manage lifecycle, etc. 
+https://developer.android.com/guide/fragments/dialogs?utm_source=chatgpt.com  
+CodePath Android Guides — Using DialogFragment	Covers how to use custom views in a dialog fragment, how to pass data to the dialog, and back to an activity. Good for learning the onCreateDialog(), newInstance(...), listener interface style.  
+https://guides.codepath.com/android/using-dialogfragment?utm_source=chatgpt.com  
+Tech Your Chance — Dialogs in Android: Practical Guide	In-depth look at pros/cons, lifecycle issues, how to manage state (e.g. what happens on rotate), how to use factory methods and Bundle arguments.  
+https://www.techyourchance.com/dialogs-in-android-practical-guide/?utm_source=chatgpt.com  
+Medium article — How to Pass Data Between Fragments	Explains how to use Bundle + Serializable (or Parcelable) to send data into a fragment.  
+https://medium.com/%40androidjunior/how-to-pass-data-between-fragments-ce3335b97e59  
+StackOverflow — Why use newInstance() instead of constructors for DialogFragment	Good explanation of the “why” behind using newInstance(...) + setArguments(...) instead of having your fragment use custom constructors. Helps avoid lifecycle / re-creation bugs.  
+https://stackoverflow.com/questions/14011808/why-use-newinstance-for-dialogfragment-instead-of-the-constructor?utm_source=chatgpt.com  
+
+If you want, I can pull together some tutorials with video or interactive code samples (step-by-step) so you can watch the implementation happen and then mimic it. Do you prefer text tutorials or video-based ones?
 
 ## Verbal Collaboration
 
