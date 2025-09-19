@@ -4,12 +4,12 @@
 
 **OpenAI ChatGPT 5.0**
 
-Below is the attached prompt and response used for guidance:
+Below is the attached prompts and responses used for guidance:
 
-Prompt :  
+**Prompt** :  
 Assist me in figuring out how to add a functionality into a given implemented app using Java in AndroidStudio. We are provided a starter code, where the app adds a city along with its state in a list of cities being displayed. Now, we want to add another functionality which can edit the city's name and state when we click on it. Hints: 1. Add setters to your City class so that you can modify its name and province. You may need to pass the City object that is clicked in the Activity into the Fragment. One way to do this is to make a constructor for the Fragment that takes in a City, and store the City in the Fragment as an instance variable. If you do this, make sure to also add an empty constructor to the Fragment so you can use it when adding a new City. Another way you can send a City object from the Activity to the Fragment is by adding a "newInstance" method in the Fragment, and use this method to create a new Fragment when editing a City. In this method, you take in a City and store it in the Fragment's Bundle object (if you do this, make sure that your City class implements the "Serializable" interface, so that it can be saved into the Bundle). Later on in your onCreateDialog method, you can access the Bundle using getArguments() and retrieve the City object there. Note that storing data in a Bundle is similar to storing data in an Intent using key-value pairs. (This is the preferred way to do it in Android, because you usually should not have custom constructors for your Fragments. See here for more info).
 
-Response:  
+**Response**:  
 What you’ll add (overview)
 
 City.java
@@ -210,12 +210,11 @@ Use the same field name everywhere. If your list is cityDataList, don’t call i
 
 That’s it. If you tell me your exact class/file names and the IDs in your XML (ListView, FAB, EditTexts), I’ll map each step to your filenames/IDs one-by-one to make it foolproof.
 
-Prompt:  
+**Prompt**:  
 Give me some links of the websites/articles where I could learn more about these methods and implement my fucntionality.
 
-Response:  
-Here are some good resources/tutorials that explain exactly the Android patterns you want (DialogFragment, factory newInstance(...), using Bundle, passing Serializable objects, callbacks, etc.). You can go through these to deepen your understanding and then apply those ideas to your code.
-
+**Response**:  
+Here are some good resources/tutorials that explain exactly the Android patterns you want (DialogFragment, factory newInstance(...), using Bundle, passing Serializable objects, callbacks, etc.). You can go through these to deepen your understanding and then apply those ideas to your code.  
 🔗 Useful Links & What You’ll Learn from Each  
 Resource	What You’ll Learn That Matches What You Need   
 Android Developer Documentation — Display dialogs with DialogFragment	Shows how to subclass DialogFragment, override onCreateDialog(), how to show it, manage lifecycle, etc. 
